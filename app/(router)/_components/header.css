@@ -1,0 +1,13 @@
+.the-menu {
+	/* display: none; */
+	/* display: none; */
+	transition: all 0.3s ease-in-out;
+}
+.the-menu.hidden {
+	/* display: none; */
+	left: -100%;
+}
+
+.header.close {
+	margin-left: 0;
+}
