@@ -17,7 +17,7 @@ const Header = ({}: IProps) => {
 
 	return (
 		<>
-			<div className="p-4  bg-white flex sm:justify-between">
+			<div className="p-4  bg-white flex sm:justify-between justify-between">
 				{/* Hamburger menu */}
 				<button
 					data-collapse-toggle="navbar-default"
@@ -46,7 +46,7 @@ const Header = ({}: IProps) => {
 				</button>
 				{/* Hamburger menu */}
 				{/* Search bar */}
-				<div className="flex gap-3 border rounded-md p-2 ml-3">
+				<div className="flex gap-3 border rounded-md p-2 ml-3 w-full">
 					<Search className="h-5 w-5" />
 					<input type="text" placeholder="Search..." className="outline-none" />
 				</div>

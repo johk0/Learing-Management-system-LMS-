@@ -4,6 +4,7 @@ import { log } from "console";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import WellcomeBanner from "./_components/WellcomeBanner";
+import CourseList from "./_components/CourseList";
 
 interface IProps {}
 const Courses = ({}: IProps) => {
@@ -18,6 +19,9 @@ const Courses = ({}: IProps) => {
 				<div className="col-span-2">
 					{/* banner */}
 					<WellcomeBanner />
+
+					{/* Course List  */}
+					<CourseList />
 				</div>
 				{/* right container */}
 				<div>right</div>
