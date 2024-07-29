@@ -1,16 +1,16 @@
 "use client";
-import { useEffect } from "react";
-import SideNav from "./_components/SideNav";
+import { use, useEffect } from "react";
+import SideNav from "../_components/SideNav";
 
-import Header from "./_components/Header";
+import Header from "../_components/Header";
 import setColors from "@/lib/setColors";
+import { usePathname } from "next/navigation";
 
 interface IProps {
 	children: React.ReactNode;
 }
 const sideNavWidth = 64;
 const layout = ({ children }: IProps) => {
-	// set colors
 	setColors();
 	return (
 		<>

@@ -4,6 +4,10 @@ import { BadgeIcon, BookOpen, GraduationCap } from "lucide-react";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import LogedIn from "./LogedIn";
+import path from "path";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 interface IProps {}
 const menu = [
@@ -11,20 +15,28 @@ const menu = [
 		id: 1,
 		name: "All Courses",
 		icon: BookOpen,
+		path: "/courses",
 	},
 	{
 		id: 2,
 		name: "Membership",
 		icon: BadgeIcon,
+		path: "/membership",
 	},
 	{
 		id: 3,
 		name: "Be Instructor",
 		icon: GraduationCap,
+		path: "/be-instructor",
 	},
 ];
 const SideNav = ({}: IProps) => {
 	const data = useSelector((state: RootState) => state.generalData[0]);
+
+	const path = usePathname();
+	useEffect(() => {
+		console.log(path, "path");
+	}, [path]);
 
 	const logo = data.logo;
 
@@ -85,13 +97,26 @@ const SideNav = ({}: IProps) => {
 				<div className="mt-7 justify-center">
 					{menu.map((item, index) => {
 						return (
-							<div
-								key={item.id}
-								className="group flex gap-3 justify-center items-center mt-1 p-3 text-[18px] font-medium text-gray-500 cursor-pointer hover:bg-primary hover:text-white rounded-md transition-all ease-in-out duration-200">
-								<item.icon className="group-hover:animate-bounce transition-all ease-in-out duration-200" />
+							<Link href={item.path} key={item.id}>
+								<div
+									className={`
+										group
+										flex gap-3 
+										justify-center 
+										items-center 
+										mt-1 p-3 
+										text-[18px] font-medium text-gray-500 cursor-pointer 
+										hover:bg-primary hover:text-white rounded-md 
+										transition-all ease-in-out duration-200
 
-								<h2>{item.name}</h2>
-							</div>
+										${path.includes(item.path) && "bg-primary text-white"}
+									 
+									 `}>
+									<item.icon className="group-hover:animate-bounce transition-all ease-in-out duration-200" />
+
+									<h2>{item.name}</h2>
+								</div>
+							</Link>
 						);
 					})}
 				</div>

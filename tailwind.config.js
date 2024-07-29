@@ -1,14 +1,12 @@
-import type { Config } from "tailwindcss";
-
-const config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
 	darkMode: ["class"],
 	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./pages/**/*.{js,ts,jsx,tsx}",
+		"./components/**/*.{js,ts,jsx,tsx}",
+		"./app/**/*.{js,ts,jsx,tsx}",
+		"./src/**/*.{js,ts,jsx,tsx}",
 	],
-	prefix: "",
 	theme: {
 		container: {
 			center: true,
@@ -56,7 +54,7 @@ const config = {
 			boxShadow: {
 				primary:
 					"0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-				md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)", // Ensure md is defined
+				md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
 			},
 			borderRadius: {
 				lg: "var(--radius)",
@@ -80,6 +78,4 @@ const config = {
 		},
 	},
 	plugins: [require("tailwindcss-animate")],
-} satisfies Config;
-
-export default config;
+};
